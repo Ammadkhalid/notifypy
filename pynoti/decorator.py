@@ -39,7 +39,7 @@ class PyNoti(object):
         logger : instance
             `logger` is instance to log error if any occur.
         delay : int
-            `delay` is delay internal in seconds. [required] if retryOn param is used [default is 3]
+            `delay` is delay internal in seconds on each retry. [required] if retryOn param is used [default is 3]
         maxRetires : int
             `maxRetires` is maximum number of retries if param retryOn is used. [default is 1000]
 
@@ -85,7 +85,7 @@ class PyNoti(object):
         Returns
         -------
         type
-            
+
 
         """
         # check for logger
@@ -97,6 +97,8 @@ class PyNoti(object):
 
         title = self.title.format(func=function.__name__)
         message = self.message.format(errorMsg=errorMsg)
+
+        print(title)
 
         self.sendMsg(title, message)
 
@@ -150,9 +152,9 @@ class PyNoti(object):
                         )
 
                         # send mail
-                        self.sendMsg(title, excMsg)
+                        self.sendMsg(excMsg, excMsg)
 
-                        raise MaxRetriesLimitExceed(exc)
+                        raise MaxRetriesLimitExceed(excMsg)
 
                     try:
                         return function(*arg, **kwarg)
