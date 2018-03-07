@@ -1,0 +1,7 @@
+README.md
+setup.py
+PyNoti.egg-info/PKG-INFO
+PyNoti.egg-info/SOURCES.txt
+PyNoti.egg-info/dependency_links.txt
+PyNoti.egg-info/requires.txt
+PyNoti.egg-info/top_level.txt
