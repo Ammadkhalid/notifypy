@@ -1,9 +1,9 @@
 from ..app.SMTPEmail import SMTPEmail
 
-class Hotmail(SMTPEmail):
+class iCloud(SMTPEmail):
 
     def __init__(self, user, password):
         self.user = user
         self.password = password
-        self.host = 'smtp.live.com'
+        self.host = 'smtp.mail.me.com'
         self.port = 587
