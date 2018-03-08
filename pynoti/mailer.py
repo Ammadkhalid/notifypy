@@ -1,18 +1,30 @@
-import gmail
-class Gmail:
+# Import all the email providers here
+from .providers.Gmail import Gmail
+from .providers.Hotmail import Hotmail
 
-    def __init__(self, user, password):
-        # sender class
-        self.sender = gmail.GMail(user, password)
+
+from .exception import UnknownProvider
+
+class Mailer:
+
+    def __init__(self, user, password, provider):
+        """ 
+            Providers in a dictionary with value of class name
+        """
+        providers = {
+            'gmail': 'Gmail',
+            'googlemail': 'Gmail',
+            'hotmail': 'Hotmail',
+            'outlook': 'Hotmail',
+            'live': 'Hotmail'
+        }
+        try:
+            # Initialising the email provider class
+            self.service = eval(providers[provider])(user, password)
+        except:
+            # If the email provider doesn't exist in our providers
+            raise UnknownProvider(provider + ' is an unknown email provider to us. Open an issue on github to add this provider')
 
     def sendMsg(self, to, sub, msg):
-        message = gmail.Message(sub, to, html=msg)
-
-        # check if not connected then connect
-        if not self.sender.is_connected():
-            self.sender.connect()
-
-        # send email
-        self.sender.send(message)
-
-        return True
+        # Sending the email using the respective email provider
+        response = self.service.send(to, sub, msg)
