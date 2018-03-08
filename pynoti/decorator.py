@@ -71,6 +71,9 @@ class PyNoti(object):
 
         self.to = to
 
+        # Gets the provider for the email
+        self.provider = gEmail.split('@')[1].split('.')[0]
+
 
     def exception(self, e, function):
         """Exception Logger and sender
@@ -120,7 +123,7 @@ class PyNoti(object):
 
 
         """
-        sendNoti(self.user, self.passwd, self.to, title, message)
+        sendNoti(self.user, self.passwd, self.to, title, message, provider = self.provider)
 
     def __call__(self, function):
         """Whenever the class instance is used as decorator.
