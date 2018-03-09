@@ -16,8 +16,21 @@ class PyNoti(object):
     https://myaccount.google.com/u/0/lesssecureapps
     """
 
-    def __init__(self, gEmail, gPasswd, to, retryOn = None, ignore = None, title = 'Unexpected Error Was Occur! in function: {func}', message = """<p>Error Message:</p><br />
-    <pre>{errorMsg}</pre>""", logger = None, delay = 3, maxRetires = 1000):
+    def __init__(
+            self,
+            gEmail,
+            gPasswd,
+            to,
+            retryOn = None,
+            ignore = None,
+            title = 'Unexpected Error Was Occur! in function: {func}',
+            message = """<p>Error Message:</p><br /> <pre>{errorMsg}</pre>""",
+            logger = None,
+            delay = 3,
+            maxRetires = 1000,
+            notification_type = 'mail',
+            twilio_keys = {}
+    ):
         """
 
         Parameters
@@ -74,6 +87,11 @@ class PyNoti(object):
         # Gets the provider for the email
         self.provider = gEmail.split('@')[1].split('.')[0]
 
+        # Type of notification
+        self.notification_type = notification_type
+
+        self.twilio_keys = twilio_keys
+
 
     def exception(self, e, function):
         """Exception Logger and sender
@@ -123,7 +141,7 @@ class PyNoti(object):
 
 
         """
-        sendNoti(self.user, self.passwd, self.to, title, message, provider = self.provider)
+        sendNoti(self.user, self.passwd, self.to, title, message, provider = self.provider, notification_type = self.notification_type, twilio_keys = self.twilio_keys)
 
     def __call__(self, function):
         """Whenever the class instance is used as decorator.
