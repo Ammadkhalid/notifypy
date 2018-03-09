@@ -3,3 +3,4 @@ __pycache__
 dist
 build
 pynoti_mail.egg-info
+.idea
