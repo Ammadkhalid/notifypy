@@ -1,7 +1,9 @@
 # Import all the email providers here
 from .providers.Gmail import Gmail
 from .providers.Hotmail import Hotmail
-
+from .providers.Yahoo import Yahoo
+from .providers.Aol import Aol
+from .providers.iCloud import iCloud
 
 from .exception import UnknownProvider
 
@@ -16,7 +18,12 @@ class Mailer:
             'googlemail': 'Gmail',
             'hotmail': 'Hotmail',
             'outlook': 'Hotmail',
-            'live': 'Hotmail'
+            'live': 'Hotmail',
+            'yahoo': 'Yahoo',
+            'ymail': 'Yahoo',
+            'yahoomail': 'Yahoo',
+            'aol': 'Aol',
+            'icloud': 'iCloud',
         }
         try:
             # Initialising the email provider class

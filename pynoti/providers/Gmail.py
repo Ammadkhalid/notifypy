@@ -1,5 +1,5 @@
 import gmail
-from ..ProviderInterface import ProviderInterface
+from ..app.ProviderInterface import ProviderInterface
 
 class Gmail(ProviderInterface):
     def __init__(self, user, password):
