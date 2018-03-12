@@ -1,4 +1,4 @@
-# Package Name was taken already so please use notiypy
+# Package Name was taken already so please use notifypy
 # PyNoti
 ## PyNoti is Decorator used to send notification on exception
 Gmail service is used to send notification to mail.
