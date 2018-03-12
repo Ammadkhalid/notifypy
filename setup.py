@@ -8,6 +8,6 @@ version = '1.0.2',
 packages = find_packages(),
 keywords = 'notification email gmail exception error',
 description = open('README.md').read(),
-install_requires = ['gmail >= 0.6.3', 'twilio']
+install_requires = ['gmail >= 0.6.3', 'twilio'],
 url = 'https://github.com/Ammadkhalid/notifypy'
 )

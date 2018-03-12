@@ -5,10 +5,10 @@ from .exception import *
 from functools import wraps
 from time import sleep
 
-class PyNoti(object):
+class NotifyPy(object):
 
     """
-    PyNoti is Decorator used to send notification on exception.
+    NotifyPy is Decorator used to send notification on exception.
     Right Now We can only use Param 'retryOn' or 'ignore' not both for handling exception.
 
     Gmail service is used to send notification to mail.
