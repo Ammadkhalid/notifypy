@@ -4,7 +4,7 @@ setup(
 name = 'notifypy',
 author_email = 'ammadkhalid12@gmail.com',
 author = 'Ammad Khalid',
-version = '1.0.2',
+version = '1.0.3',
 packages = find_packages(),
 keywords = 'notification email gmail exception error',
 description = open('README.md').read(),
