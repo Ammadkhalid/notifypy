@@ -1,2 +1,2 @@
-import .decorator
-import .exception
+from . import decorator
+from . import exception
